@@ -2,6 +2,10 @@
   <!-- Logo and arrow show/hide -->
   <div class="w-full flex gap-1 items-center">
     <span class="leading-none text-lg flex-1">Shirley Matcha</span>
-    <app-chevrons-left />
+    @if (isOpen) {
+      <app-chevrons-right />
+    } @else {
+      <app-chevrons-left />
+    }
   </div>
 </div>
