@@ -3,9 +3,22 @@
   <div class="w-full flex gap-1 items-center">
     <span class="leading-none text-lg flex-1">Shirley Matcha</span>
     @if (isOpen) {
-      <app-chevrons-right />
+      <button>
+        <app-chevrons-right />
+      </button>
     } @else {
-      <app-chevrons-left />
+      <button>
+        <app-chevrons-left />
+      </button>
+    }
+  </div>
+  <!-- Functions list -->
+  <div class="w-full flex flex-col gap-2 justify-start">
+    @for (item of sideNav; track $index) {
+      <div class="flex gap-2">
+        <ng-container *ngComponentOutlet="item.icon"></ng-container>
+        <div>{{ item.label }}</div>
+      </div>
     }
   </div>
 </div>
