@@ -6,10 +6,11 @@ import { NavSection } from '../../models/nav';
 import { Home } from '../icons/home/home';
 import { Workspace } from '../icons/workspace/workspace';
 import { Personal } from '../icons/personal/personal';
+import { Settings } from "../icons/settings/settings";
 
 @Component({
   selector: 'app-side-nav',
-  imports: [ChevronsLeft, ChevronsRight, NgComponentOutlet],
+  imports: [ChevronsLeft, ChevronsRight, NgComponentOutlet, Settings],
   templateUrl: './side-nav.html',
   styleUrl: './side-nav.css',
 })

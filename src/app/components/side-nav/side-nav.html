@@ -1,6 +1,6 @@
-<div class="bg-neutral-50 w-2xs h-screen flex flex-col p-4">
+<div class="bg-neutral-50 w-2xs h-screen flex flex-col gap-5 justify-around p-2">
   <!-- Logo and arrow show/hide -->
-  <div class="w-full flex gap-1 items-center">
+  <div class="w-full flex gap-1 items-center mt-2">
     <span class="leading-none text-lg flex-1">Shirley Matcha</span>
     @if (isOpen) {
       <button>
@@ -13,12 +13,16 @@
     }
   </div>
   <!-- Functions list -->
-  <div class="w-full flex flex-col gap-2 justify-start">
+  <div class="w-full flex flex-col flex-1 gap-2 justify-start">
     @for (item of sideNav; track $index) {
-      <div class="flex gap-2">
+      <div class="flex items-center gap-2.5 px-2 py-2.5 rounded-md hover:text-white hover:bg-primary-main">
         <ng-container *ngComponentOutlet="item.icon"></ng-container>
-        <div>{{ item.label }}</div>
+        <div class="text-lg">{{ item.label }}</div>
       </div>
     }
+  </div>
+  <div class="w-full flex gap-2 px-1 mb-2">
+    <app-settings></app-settings>
+    <div>Setting</div>
   </div>
 </div>
