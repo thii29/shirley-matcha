@@ -1,28 +1,65 @@
-<div class="bg-neutral-50 w-2xs h-screen flex flex-col gap-5 justify-around p-2">
-  <!-- Logo and arrow show/hide -->
+<div
+  class="bg-neutral-50 h-screen flex flex-col gap-5 p-2 transition-[w-3xs] duration-600 ease-in-out"
+  [class.w-3xs]="isOpen"
+  [class.w-16]="!isOpen"
+>
+  <!-- Logo and arrow -->
   <div class="w-full flex gap-1 items-center mt-2">
-    <span class="leading-none text-lg flex-1">Shirley Matcha</span>
     @if (isOpen) {
-      <button>
+      <span class="leading-none text-lg flex-1 whitespace-nowrap transition-opacity duration-300"
+        >Shirley Matcha</span
+      >
+      <button (click)="toggleSideBar()">
         <app-chevrons-right />
       </button>
     } @else {
-      <button>
+      <button class="mx-auto" (click)="toggleSideBar()">
         <app-chevrons-left />
       </button>
     }
   </div>
+
   <!-- Functions list -->
   <div class="w-full flex flex-col flex-1 gap-2 justify-start">
-    @for (item of sideNav; track $index) {
-      <div class="flex items-center gap-2.5 px-2 py-2.5 rounded-md hover:text-white hover:bg-primary-main">
+    @for (item of sideNav; track item.route) {
+      <div
+        class="flex items-center gap-2 px-2 py-2.5 rounded-md cursor-pointer hover:text-white hover:bg-primary-main"
+        [class.justify-center]="!isOpen"
+        [class.bg-primary-main]="activeRoute === item.route"
+        [class.text-white]="activeRoute === item.route"
+        (click)="setActive(item.route)"
+      >
         <ng-container *ngComponentOutlet="item.icon"></ng-container>
-        <div class="text-lg">{{ item.label }}</div>
+
+        @if (isOpen) {
+          <div class="text-lg whitespace-nowrap overflow-hidden transition-all duration-200">
+            {{ item.label }}
+          </div>
+        }
       </div>
     }
   </div>
-  <div class="w-full flex gap-2 px-1 mb-2">
+
+  <!-- Settings -->
+  <div
+    class="w-full flex items-center gap-2 px-2 py-2.5 mb-1 rounded-md cursor-pointer hover:text-white hover:bg-primary-main"
+    [class.justify-center]="!isOpen"
+    [class.bg-primary-main]="activeRoute === '/settings'"
+    [class.text-white]="activeRoute === '/settings'"
+    (click)="setActive('/settings')"
+  >
     <app-settings></app-settings>
-    <div>Setting</div>
+
+    @if (isOpen) {
+      <div
+        class="whitespace-nowrap overflow-hidden transition-all duration-200"
+        [class.opacity-100]="isOpen"
+        [class.opacity-0]="!isOpen"
+        [class.w-auto]="isOpen"
+        [class.w-0]="!isOpen"
+      >
+        Setting
+      </div>
+    }
   </div>
 </div>

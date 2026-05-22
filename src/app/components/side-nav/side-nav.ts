@@ -16,6 +16,7 @@ import { Settings } from "../icons/settings/settings";
 })
 export class SideNav {
   isOpen: boolean = true;
+  activeRoute: string ='/'
 
   sideNav: NavSection[] = [
     {
@@ -37,7 +38,10 @@ export class SideNav {
     },
   ];
 
-  handleCloseSideBar(): void {
-    this.isOpen = false;
+  toggleSideBar():void{
+    this.isOpen = !this.isOpen
+  }
+  setActive(route: string):void{
+    this.activeRoute = route
   }
 }

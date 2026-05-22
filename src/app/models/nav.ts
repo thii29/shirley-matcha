@@ -8,7 +8,7 @@ export interface NavChild {
 export interface NavSection {
   icon: Type<any>;
   label: string;
-  route?: string;
+  route: string;
   children?: NavChild[];
   expanded?: boolean;
 }
