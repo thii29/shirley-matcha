@@ -7,6 +7,7 @@ import { Home } from '../../../components/icons/home/home';
 import { Settings } from '../../../components/icons/settings/settings';
 import { Workspace } from '../../../components/icons/workspace/workspace';
 import { NavSection } from '../../../models/nav';
+import { Personal } from '../../../components/icons/personal/personal';
 
 @Component({
   selector: 'app-side-nav',
@@ -29,6 +30,11 @@ export class SideNav {
       label: 'Workspace',
       route: 'workspace',
       expanded: true,
+    },
+    {
+      icon: Personal,
+      label: 'Personal',
+      route: 'personal',
     },
   ];
 
