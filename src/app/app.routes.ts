@@ -8,8 +8,19 @@ export const routes: Routes = [
     path: '',
     component: Main,
     children: [
-      { path: '', component: Home },
-      { path: '/workspace', component: Workspace },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        component: Home,
+      },
+      {
+        path: 'workspace',
+        component: Workspace,
+      },
     ],
   },
 ];

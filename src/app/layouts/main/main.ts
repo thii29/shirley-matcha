@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { SideNav } from "../../components/side-nav/side-nav";
+import { RouterOutlet } from '@angular/router';
+import { SideNav } from './side-nav/side-nav';
 
 @Component({
   selector: 'app-main',
-  imports: [SideNav],
+  imports: [SideNav, RouterOutlet],
   templateUrl: './main.html',
   styleUrl: './main.css',
 })

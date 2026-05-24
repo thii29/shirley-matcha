@@ -1,19 +1,19 @@
 <div
-  class="bg-neutral-50 h-screen flex flex-col gap-5 p-2 transition-[w-3xs] duration-600 ease-in-out"
+  class="bg-neutral-50 h-screen flex flex-col gap-5 p-2 transition-all duration-800 ease-in-out"
   [class.w-3xs]="isOpen"
   [class.w-16]="!isOpen"
 >
   <!-- Logo and arrow -->
   <div class="w-full flex gap-1 items-center mt-2">
     @if (isOpen) {
-      <span class="leading-none text-lg flex-1 whitespace-nowrap transition-opacity duration-300"
+      <span class="leading-none text-lg flex-1 whitespace-nowrap overflow-hidden"
         >Shirley Matcha</span
       >
-      <button (click)="toggleSideBar()">
+      <button (click)="toggleSideBar()" class="cursor-pointer">
         <app-chevrons-right />
       </button>
     } @else {
-      <button class="mx-auto" (click)="toggleSideBar()">
+      <button class="mx-auto cursor-pointer" (click)="toggleSideBar()">
         <app-chevrons-left />
       </button>
     }
@@ -23,6 +23,7 @@
   <div class="w-full flex flex-col flex-1 gap-2 justify-start">
     @for (item of sideNav; track item.route) {
       <div
+        [routerLink]="item.route"
         class="flex items-center gap-2 px-2 py-2.5 rounded-md cursor-pointer hover:text-white hover:bg-primary-main"
         [class.justify-center]="!isOpen"
         [class.bg-primary-main]="activeRoute === item.route"
@@ -32,7 +33,7 @@
         <ng-container *ngComponentOutlet="item.icon"></ng-container>
 
         @if (isOpen) {
-          <div class="text-lg whitespace-nowrap overflow-hidden transition-all duration-200">
+          <div class="text-lg whitespace-nowrap overflow-hidden">
             {{ item.label }}
           </div>
         }
@@ -52,7 +53,7 @@
 
     @if (isOpen) {
       <div
-        class="whitespace-nowrap overflow-hidden transition-all duration-200"
+        class="whitespace-nowrap overflow-hidden"
         [class.opacity-100]="isOpen"
         [class.opacity-0]="!isOpen"
         [class.w-auto]="isOpen"
