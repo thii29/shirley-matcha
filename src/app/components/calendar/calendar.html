@@ -4,7 +4,15 @@
   <!-- Calender Title & Control Button -->
   <div class="flex justify-center">
     <button class="cursor-pointer"><app-chevron-left></app-chevron-left></button>
-    <h4 class="flex-1 flex justify-center">Calendar</h4>
+    <h4 class="flex-1 flex justify-center">{{ monthLabel() }}</h4>
     <button class="cursor-pointer"><app-chevron-right></app-chevron-right></button>
+  </div>
+  <!-- Days -->
+  <div class="grid grid-cols-7">
+    @for (day of calendarDays(); track day.date.toISOString()) {
+      <button type="button">
+        <span>{{ day.dayNumber }}</span>
+      </button>
+    }
   </div>
 </div>
