@@ -40,7 +40,7 @@ export class Calendar {
     const year = date.getFullYear();
 
     const firstDayOfMonth = new Date(year, month, 1);
-    const startDay = firstDayOfMonth.getDay();
+    const startDay = firstDayOfMonth.getDay() - 1;
 
     const firstDateInCalendar = new Date(year, month, 1 - startDay);
 
@@ -62,4 +62,13 @@ export class Calendar {
 
     return days;
   });
+  goToPreviousMonth() {
+    const date = this.currentDate();
+    this.currentDate.set(new Date(date.getFullYear(), date.getMonth() - 1, 1));
+  }
+
+  goToNextMonth() {
+    const date = this.currentDate();
+    this.currentDate.set(new Date(date.getFullYear(), date.getMonth() + 1, 1));
+  }
 }

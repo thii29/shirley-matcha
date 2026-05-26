@@ -1,16 +1,33 @@
 <div
-  class="w-full px-2 py-1.5 border border-neutral-200 rounded-lg bg-neutral-50 flex flex-col gap-2"
+  class="w-full px-3 py-4 border border-neutral-200 rounded-lg bg-neutral-50 flex flex-col gap-1"
 >
-  <!-- Calender Title & Control Button -->
+  <!-- Calendar Title & Control Button -->
   <div class="flex justify-center">
-    <button class="cursor-pointer"><app-chevron-left></app-chevron-left></button>
+    <button class="cursor-pointer" (click)="goToPreviousMonth()">
+      <app-chevron-left></app-chevron-left>
+    </button>
     <h4 class="flex-1 flex justify-center">{{ monthLabel() }}</h4>
-    <button class="cursor-pointer"><app-chevron-right></app-chevron-right></button>
+    <button class="cursor-pointer" (click)="goToNextMonth()">
+      <app-chevron-right></app-chevron-right>
+    </button>
+  </div>
+  <!-- Weekdays -->
+  <div class="grid grid-cols-7 place-items-center">
+    @for (day of weekDays; track day) {
+      <div class="flex w-8 h-8 items-center justify-center">
+        {{ day }}
+      </div>
+    }
   </div>
   <!-- Days -->
-  <div class="grid grid-cols-7">
+  <div class="grid grid-cols-7 place-items-center">
     @for (day of calendarDays(); track day.date.toISOString()) {
-      <button type="button">
+      <button
+        type="button"
+        class="flex w-8 h-8 justify-center items-center"
+        [class.text-neutral-400]="!day.isCurrentMonth"
+        [class.text-neutral-700]="day.isCurrentMonth"
+      >
         <span>{{ day.dayNumber }}</span>
       </button>
     }
