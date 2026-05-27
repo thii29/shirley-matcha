@@ -6,7 +6,7 @@
     <button class="cursor-pointer" (click)="goToPreviousMonth()">
       <app-chevron-left></app-chevron-left>
     </button>
-    <h4 class="flex-1 flex justify-center">{{ monthLabel() }}</h4>
+    <h4 class="flex-1 flex justify-center text-sm lg:text-base">{{ monthLabel() }}</h4>
     <button class="cursor-pointer" (click)="goToNextMonth()">
       <app-chevron-right></app-chevron-right>
     </button>
@@ -14,7 +14,7 @@
   <!-- Weekdays -->
   <div class="grid grid-cols-7 place-items-center">
     @for (day of weekDays; track day) {
-      <div class="flex w-8 h-8 items-center justify-center">
+      <div class="flex w-10 h-8 items-center justify-center text-xs lg:text-base">
         {{ day }}
       </div>
     }
@@ -24,7 +24,7 @@
     @for (day of calendarDays(); track day.date.toISOString()) {
       <button
         type="button"
-        class="flex w-8 h-8 justify-center items-center"
+        class="flex w-10 h-8 justify-center items-center text-xs lg:text-base"
         [class.text-neutral-400]="!day.isCurrentMonth"
         [class.text-neutral-700]="day.isCurrentMonth"
       >
