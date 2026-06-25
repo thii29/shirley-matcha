@@ -3,18 +3,24 @@
 >
   <!-- Calendar Title & Control Button -->
   <div class="flex justify-center">
-    <button class="cursor-pointer" (click)="goToPreviousMonth()">
+    <button
+      class="cursor-pointer rounded-sm hover:text-white hover:bg-primary-600"
+      (click)="goToPreviousMonth()"
+    >
       <app-chevron-left></app-chevron-left>
     </button>
-    <h4 class="flex-1 flex justify-center text-sm lg:text-base">{{ monthLabel() }}</h4>
-    <button class="cursor-pointer" (click)="goToNextMonth()">
+    <h4 class="flex-1 flex justify-center text-sm font-bold lg:text-lg">{{ monthLabel() }}</h4>
+    <button
+      class="cursor-pointer rounded-sm hover:text-white hover:bg-primary-600"
+      (click)="goToNextMonth()"
+    >
       <app-chevron-right></app-chevron-right>
     </button>
   </div>
   <!-- Weekdays -->
   <div class="grid grid-cols-7 place-items-center">
     @for (day of weekDays; track day) {
-      <div class="flex w-10 h-8 items-center justify-center text-xs lg:text-base">
+      <div class="flex w-10 h-8 items-center justify-center font-semibold text-xs lg:text-md">
         {{ day }}
       </div>
     }
@@ -24,9 +30,11 @@
     @for (day of calendarDays(); track day.date.toISOString()) {
       <button
         type="button"
-        class="flex w-10 h-8 justify-center items-center text-xs lg:text-base"
+        class="flex w-10 h-8 rounded-md justify-center items-center text-xs lg:text-md"
         [class.text-neutral-400]="!day.isCurrentMonth"
         [class.text-neutral-700]="day.isCurrentMonth"
+        [class.text-white]="day.isToday"
+        [class.bg-primary-main]="day.isToday"
       >
         <span>{{ day.dayNumber }}</span>
       </button>

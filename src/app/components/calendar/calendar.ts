@@ -26,6 +26,7 @@ export class Calendar {
     });
   });
 
+
   private isSameDate(a: Date, b: Date): boolean {
     return (
       a.getFullYear() === b.getFullYear() &&
