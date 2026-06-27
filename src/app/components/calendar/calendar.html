@@ -7,14 +7,14 @@
       class="cursor-pointer rounded-sm hover:text-white hover:bg-primary-600"
       (click)="goToPreviousMonth()"
     >
-      <app-chevron-left></app-chevron-left>
+      <svg lucideChevronLeft ></svg>
     </button>
     <h4 class="flex-1 flex justify-center text-sm font-bold lg:text-lg">{{ monthLabel() }}</h4>
     <button
       class="cursor-pointer rounded-sm hover:text-white hover:bg-primary-600"
       (click)="goToNextMonth()"
     >
-      <app-chevron-right></app-chevron-right>
+      <svg lucideChevronRight ></svg>
     </button>
   </div>
   <!-- Weekdays -->

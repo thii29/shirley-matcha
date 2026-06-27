@@ -1,6 +1,5 @@
 import { Component, computed, signal } from '@angular/core';
-import { ChevronLeft } from '../icons/chevron-left/chevron-left';
-import { ChevronRight } from '../icons/chevron-right/chevron-right';
+import { LucideChevronLeft, LucideChevronRight } from "@lucide/angular"
 
 type CalendarDay = {
   date: Date;
@@ -11,7 +10,7 @@ type CalendarDay = {
 
 @Component({
   selector: 'app-calendar',
-  imports: [ChevronLeft, ChevronRight],
+  imports: [LucideChevronLeft, LucideChevronRight],
   templateUrl: './calendar.html',
   styleUrl: './calendar.css',
 })

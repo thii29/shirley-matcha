@@ -1,17 +1,15 @@
 import { NgComponentOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ChevronsLeft } from '../../../components/icons/chevrons-left/chevrons-left';
-import { ChevronsRight } from '../../../components/icons/chevrons-right/chevrons-right';
+import { LucideChevronsRight, LucideChevronsLeft } from '@lucide/angular';
 import { Home } from '../../../components/icons/home/home';
 import { Settings } from '../../../components/icons/settings/settings';
 import { Workspace } from '../../../components/icons/workspace/workspace';
 import { NavSection } from '../../../models/nav';
-import { Personal } from '../../../components/icons/personal/personal';
 
 @Component({
   selector: 'app-side-nav',
-  imports: [ChevronsLeft, ChevronsRight, NgComponentOutlet, Settings, RouterLink],
+  imports: [NgComponentOutlet, Settings, RouterLink, LucideChevronsRight, LucideChevronsLeft],
   templateUrl: './side-nav.html',
   styleUrl: './side-nav.css',
 })
@@ -30,11 +28,6 @@ export class SideNav {
       label: 'Workspace',
       route: 'workspace',
       expanded: true,
-    },
-    {
-      icon: Personal,
-      label: 'Personal',
-      route: 'personal',
     },
   ];
 
